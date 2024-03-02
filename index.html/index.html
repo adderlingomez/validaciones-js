@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+
+  <script src="{% static 'main.js' %}" defer> </script>
+  <title>Formulario</title>
+</head>
+
+<body>
+
+  <header class="header">
+    <h1 class="header__text">Validaciones JS</h1>
+  </header>
+
+  <div class="content">
+    <section class="details">
+      <div class="card">
+        <p class="card__title">los campos se validaran de la siguiente manera:</li>
+        <ul class="list">
+          <li class="list__item"><span>Ficha:</span> se puede ingresar cualquier caracter</li>
+
+          <li class="list__item"><span>Nombre:</span>solo se puede ingresar letras</li>
+
+          <li class="list__item"><span>Apellido:</span> solo se puede ingresar letras</li>
+
+          <li class="list__item"><span>Correo:</span> solo se puede ingresar un correo valido</li>
+
+          <li class="list__item"><span>Télefono:</span> solo se puede ingresar numeros</li>
+
+          <li class="list__item"><span>Genero:</span> solo se puede seleccionar un genero</li>
+
+          <li class="list__item"><span>Ciudad:</span> solo se puede seleccionar una ciudad</li>
+
+          <li class="list__item"><span>Habilidades:</span> se tiene que seleccionar como minimo tres habilidades</p>
+        </ul>
+      </div>
+    </section>
+
+
+    <section class="form">
+      <div class="card">
+        <form action="form" autocomplete="on" class="options">
+          <!--autocomplete: se auto completa el fomulario con lo previamente enviado -->
+
+          <div class="form__input">
+            <label for="nombre" class="form__label">Ficha: </label>
+            <input type="text" name="ficha" id="ficha" placeholder="numero de la ficha:" required
+              class="input__section">
+          </div>
+
+          <div class="form__input">
+            <!--nombre con validacion-->
+            <label for="nombre" class="form__label">Nombre: </label>
+            <input type="text" name="nombre" id="nombre" pattern="[a-zA-Z]+" required placeholder="Ingrese nombre: "
+              class="input__section">
+          </div>
+
+          <div class="form__input">
+            <!--apellido con validacion-->
+            <label for="nombre" class="form__label">Apellido: </label>
+            <input type="text" name="apellido" id="apellido" pattern="[a-zA-Z]+" required
+              placeholder="Ingrese apellido: " class="input__section">
+          </div>
+
+          <div class="form__input">
+            <label for="nombre" class="form__label">Correo: </label>
+            <input type="email" name="correo" id="correo" required placeholder="Ingrese correo:" class="input__section">
+          </div>
+
+          <div class="form__input">
+            <!--telefono con validacion maximo 10 numeros-->
+            <label for="nombre" class="form__label">Telefono: </label>
+            <input type="tel" name="télefono" id="télefono" pattern="[0-9]{10}" maxlength="10" required
+              placeholder="Ingrese telefono:" class="input__section">
+          </div>
+
+
+          <div class="form__gender">
+            <label for="nombre" class="form__label">Genero: </label>
+
+            <div class="gender__radio">
+              <input type="radio" name="genero" id="hombre" value="hombre" required>
+              <label for="radio">Hombre</label>
+            </div>
+
+            <div class="gender__radio">
+              <input type="radio" name="genero" id="mujer" value="mujer">
+              <label for="radio">Mujer</label>
+            </div>
+
+            <div class="gender__radio">
+              <input type="radio" name="genero" id="otro" value="otro" .>
+              <label for="otro">Otro</label>
+            </div>
+
+          </div>
+
+          <div class="country__select">
+            <label for="nombre" class="form__label">Seleccione ciudad: </label>
+            <select name="ciudad" id="ciudad" required class="select">
+              <option value="bogotá" selected disabled>Ciudad: </option>
+              <option value="bogotá">Bogotá</option>
+              <option value="medellin">Medellin</option>
+              <option value="bucaramanga">Bucaramanga</option>
+              <option value="barranquilla">Barranquilla</option>
+              <option value="otra">Seleccione una ciudad</option>
+            </select>
+          </div>
+
+          <div id="opciones">
+            <label for="nombre" class="form__label">Seleccione minimo tres habilidades: </label>
+            <div>
+              <input type="checkbox" name="habilidades" id="html" value="html">
+              <label for="checkbox">HTML</label>
+            </div>
+            <div>
+              <input type="checkbox" name="habilidades" id="css" value="css">
+              <label for="checkbox">CSS</label>
+            </div>
+            <div>
+              <input type="checkbox" name="habilidades" id="javascript" value="javascript">
+              <label for="checkbox">JavaScript</label>
+            </div>
+            <div>
+              <input type="checkbox" name="habilidades" id="php" value="php">
+              <label for="checkbox">PHP</label>
+            </div>
+            <div>
+              <input type="checkbox" name="habilidades" id="java" value="java">
+              <label for="checkbox">JAVA</label>
+            </div>
+            <div>
+              <input type="checkbox" name="habilidades" id="sql" value="sql">
+              <label for="checkbox">SQL</label>
+            </div>
+            <div>
+              <input type="checkbox" name="habilidades" id="uml" value="uml">
+              <label for="checkbox">UML</label>
+            </div>
+          </div>
+
+          <div>
+            <button type="submit" id="enviar">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>
